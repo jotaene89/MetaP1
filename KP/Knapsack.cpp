@@ -33,6 +33,20 @@ vector<int> meta::Knapsack::getElement(unsigned int n)
 	return this->elements[n];
 }
 
+int meta::Knapsack::getElementProfit(unsigned int n)
+{
+	//vector <int> aux = this->getElement(n);
+	
+	return this->elements[n][0];
+}
+
+int meta::Knapsack::getElementWeight(unsigned int n)
+{
+	//vector <int> aux = this->getElement(n);
+	
+	return this->elements[n][1];
+}
+
 void meta::Knapsack::printKnapsack()
 {
 	cout << "Elements of the Knapsack" << endl;
@@ -40,4 +54,9 @@ void meta::Knapsack::printKnapsack()
 	{
 		cout << "Valor = " << elements[i][0] << ", peso = " << elements[i][1] << endl;
 	}
+}
+
+int meta::Knapsack::size()
+{
+	return this->elements.size();
 }

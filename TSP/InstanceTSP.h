@@ -95,6 +95,13 @@ public:
 	 * @return Medida de fitness. Distancia del camino de la solucion.
 	 */
 	double checkSolution(solutionTSP solution);
+	
+	/**
+	 * @brief Devuelve el tamaño del vector de nodos de la instancia, o lo que es lo mismo, el numero de nodos del problema.
+	 * 
+	 * @return Entero.
+	 */
+	int size();
 }; //Close of class
 
 } //Close of namespace

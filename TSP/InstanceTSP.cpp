@@ -121,3 +121,8 @@ double meta::InstanceTSP::checkSolution(solutionTSP solution)
 	
 	return totalDistance;
 }
+
+int meta::InstanceTSP::size()
+{
+	return this->nodes.size();
+}

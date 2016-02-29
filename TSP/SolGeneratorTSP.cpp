@@ -36,18 +36,6 @@ meta::solutionTSP meta::SolGeneratorTSP::randomSolution(int n)
 		cout << "La posicion generada random es: " << pos << endl;
 		vector.push_back(aux.at(pos));
 		aux.erase(aux.begin()+(pos));
-		cout << "aux=[ ";
-		for(unsigned int j=0; j<aux.size(); j++)
-		{
-			cout << aux[j] << " ";
-		}
-		cout << "]" << endl;
-		cout << "vector=[ ";
-		for(unsigned int j=0; j<vector.size(); j++)
-		{
-			cout << vector[j] << " ";
-		}
-		cout << "]" << endl;
 	}
 	
 	solutionTSP solution(vector);

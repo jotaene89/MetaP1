@@ -5,9 +5,12 @@ meta::solutionKP::solutionKP()
 
 }
 
-meta::solutionKP::solutionKP(vector< bool > vector)
+meta::solutionKP::solutionKP(vector< bool > vec)
 {
-	this->solution = vector;
+	for(unsigned int i=0; i<vec.size(); i++)
+	{
+		this->solution.push_back(vec[i]);
+	}
 }
 
 meta::solutionKP::~solutionKP()
@@ -33,4 +36,14 @@ bool meta::solutionKP::getValueOfPosition(int position)
 void meta::solutionKP::setValueForPosition(int position, bool value)
 {
 	this->solution[position] = value;
+}
+
+void meta::solutionKP::printSolution()
+{
+	cout << "Solution: [ ";
+	for(unsigned int i=0; i< this->solution.size(); i++)
+	{
+		cout << this->solution[i] << " ";
+	}
+	cout << "]" << endl;
 }

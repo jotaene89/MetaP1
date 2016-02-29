@@ -75,10 +75,33 @@ public:
 	vector <int> getElement(unsigned int n);
 	
 	/**
+	 * @brief Devuelve el Valor o Profit del elemento en la posicion n del vector de elementos de la instancia.
+	 * 
+	 * @param n Posicion del elemento en el vector de la intancia. Entero.
+	 * @return Valor o precio del elemento.
+	 */
+	int getElementProfit(unsigned int n);
+	
+	/**
+	 * @brief Devuelve el peso del elemento en la posicion n del vector de elementos de la instancia.
+	 * 
+	 * @param n Posicion del elemento en el vector de la instancia. Entero.
+	 * @return Peso del elemento.
+	 */
+	int getElementWeight(unsigned int n);
+	
+	/**
 	 * @brief Imprime todos los elementos de la instancia.
 	 * 
 	 */
 	void printKnapsack();
+	
+	/**
+	 * @brief Devuelve el numero de elementos de la instancia del problema de la mochila.
+	 * 
+	 * @return Entero
+	 */
+	int size();
 	
 }; // close of class
 

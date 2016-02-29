@@ -2,6 +2,7 @@
 #define SOLUTIONKP_H
 
 #include <vector>
+#include <iostream>
 
 using namespace std;
 namespace meta{
@@ -30,9 +31,9 @@ public:
 	/**
 	 * @brief Constructor parametrizado. El vector pasado como parametro se asigna al vector de solucion de la clase.
 	 * 
-	 * @param vector Vector booleano de tamaño igual que el numero de nodos.
+	 * @param vec Vector booleano de tamaño igual que el numero de nodos.
 	 */
-	solutionKP(vector<bool> vector);
+	solutionKP(vector<bool> vec);
 	
 	/**
 	 * @brief Destructor de la clase.
@@ -69,6 +70,12 @@ public:
 	 * @return Bool. Valor del vector solucion en la posicion dada.
 	 */
 	bool getValueOfPosition( int position);
+	
+	/**
+	 * @brief Muestra por pantalla el vector de solucion de la clase.
+	 * 
+	 */
+	void printSolution();
 };
 
 }

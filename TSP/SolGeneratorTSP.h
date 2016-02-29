@@ -4,8 +4,8 @@
 #include <vector>
 #include "InstanceTSP.h"
 #include "solutionTSP.h"
-#include "Random.h"
-#include "Timer.h"
+#include "../Random.h"
+#include "../Timer.h"
 
 using namespace std;
 namespace meta{

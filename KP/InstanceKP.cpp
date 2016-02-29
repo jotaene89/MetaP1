@@ -73,13 +73,14 @@ double meta::InstanceKP::checkSolution(solutionKP solution, int instance)
 	
 	for(int i = 0; i< solution.getSize(); i++)
 	{
-		overWeightProfit += mochila.getElement(i)[0];
+		overWeightProfit += mochila.getElementWeight(i);
 		if (solution.getValueOfPosition(i) == true)
 		{
-			weight += mochila.getElement(i)[1];
-			fitness += mochila.getElement(i)[0];
+			weight += mochila.getElementWeight(i);
+			fitness += mochila.getElementProfit(i);
 		}
 	}
+	cout << "Vector solucion recorrido totalmente" << endl;
 	
 	if(weight > mochila.getWeight())
 	{
