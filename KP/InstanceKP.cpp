@@ -80,7 +80,6 @@ double meta::InstanceKP::checkSolution(solutionKP solution, int instance)
 			fitness += mochila.getElementProfit(i);
 		}
 	}
-	cout << "Vector solucion recorrido totalmente" << endl;
 	
 	if(weight > mochila.getWeight())
 	{

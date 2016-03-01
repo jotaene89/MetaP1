@@ -18,6 +18,8 @@ class SolGeneratorTSP
 {
 private:
 	
+	Random* rand;
+	
 public:
 	
 	/**
@@ -25,6 +27,13 @@ public:
 	 * 
 	 */
 	SolGeneratorTSP();
+	
+	/**
+	 * @brief Constructor parametrizado de la clase, que recibe el objeto Random inicializado en el main.
+	 * 
+	 * @param rand Objeto random inicializado previamente con una semilla.
+	 */
+	SolGeneratorTSP(Random* rand);
 	
 	/**
 	 * @brief Destructor de la clase.

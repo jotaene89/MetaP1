@@ -18,12 +18,25 @@ class SolGeneratorKP
 {
 private:
 
+	/**
+	 * @brief Puntero al objeto random inicializado para generar aleatoriamente.
+	 * 
+	 */
+	Random* rand;
+	
 public:
 	/**
 	* @brief Constructor vacio de la clase.
 	*
 	*/
 	SolGeneratorKP();
+	
+	/**
+	 * @brief Constructor parametrizado con una referencia al objeto Random inicializado con una semilla en el main.
+	 * 
+	 * @param rand Puntero al objeto Random inicializado.
+	 */
+	SolGeneratorKP(Random* rand);
 	
 	/**
 	* @brief Destructor de la clase.

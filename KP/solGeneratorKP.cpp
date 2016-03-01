@@ -5,6 +5,11 @@ meta::SolGeneratorKP::SolGeneratorKP()
 
 }
 
+meta::SolGeneratorKP::SolGeneratorKP(Random* rand)
+{
+	this->rand = rand;
+}
+
 meta::SolGeneratorKP::~SolGeneratorKP()
 {
 
@@ -12,15 +17,12 @@ meta::SolGeneratorKP::~SolGeneratorKP()
 
 meta::solutionKP meta::SolGeneratorKP::randomSolution(int n)
 {
-	Random random;
-	random.cambiaSemilla(seeds[1]);
-	Timer timer;
 	vector<bool> vector;
 
 	for(int j=0; j<n; j++)
 	{
 
-		int valor = random.Randint(0, 1);
+		int valor = this->rand->Randint(0, 1);
 		
 		if(valor == 1)
 		{
