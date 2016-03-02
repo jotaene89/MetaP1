@@ -19,7 +19,7 @@ int main(int argc, char **argv) {
 	SolGeneratorKP generator = SolGeneratorKP(&random);
 	Knapsack mochila;
 	
-	instance.loadFromFile("fichero.csv");
+	instance.loadFromFile("knapPI_1_200_10000.csv");
 	mochila = instance.getInstance(0);
 	solution = generator.randomSolution(mochila.size());
 	solution.printSolution();
