@@ -15,18 +15,34 @@ int main(int argc, char **argv) {
 	random.cambiaSemilla(seeds[1]);
 	
 	InstanceKP instance;
-	solutionKP solution;
+	solutionKP solution, bestSolution;
 	SolGeneratorKP generator = SolGeneratorKP(&random);
 	Knapsack mochila;
+	int numInstancias;
+	double fitness = 0, bestFitness = 0;
+	
+	cout << "Intruduzca el numero de instancias que se computaran: ";
+	std::cin >> numInstancias;
 	
 	instance.loadFromFile("knapPI_1_200_10000.csv");
-	mochila = instance.getInstance(0);
-	solution = generator.randomSolution(mochila.size());
-	solution.printSolution();
-	double fitness = instance.checkSolution(solution, 0);
-	cout << "El fitness es: " << fitness << endl;
-	solution = generator.randomSolution(mochila.size());
-	solution.printSolution();
-	fitness = instance.checkSolution(solution, 0);
-	cout << "El fitness es: " << fitness << endl;
+	
+	for( int i = 0; i< numInstancias; i++)
+	{
+		mochila = instance.getInstance(i);
+		
+		for( int j = 0; j<1000; j++)
+		{
+			solution = generator.randomSolution(mochila.size());
+			fitness = instance.checkSolution(solution, i);
+			if (fitness >= bestFitness)
+			{
+				bestFitness = fitness;
+				bestSolution = solution;
+			}
+		}
+	}
+	
+	cout << "La mejor solucion es: " << endl;
+	bestSolution.printSolution();
+	cout << "Fitness: " << bestFitness << endl;
 }

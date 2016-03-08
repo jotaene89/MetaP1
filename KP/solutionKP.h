@@ -76,6 +76,21 @@ public:
 	 * 
 	 */
 	void printSolution();
+	
+	/**
+	 * @brief Asigna un vector solucion a la clase solucion
+	 * 
+	 * @param vect Vector con una solucion a asignar
+	 */
+	void setSolution(vector<bool> vect);
+	
+	/**
+	 * @brief Sobrecarga del operador de asignación.
+	 * 
+	 * @param sol Objeto de la clase solutionKP a asignar.
+	 * @return meta::solutionKP&
+	 */
+	solutionKP& operator = (solutionKP sol);
 };
 
 }

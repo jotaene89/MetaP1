@@ -38,6 +38,11 @@ void meta::solutionKP::setValueForPosition(int position, bool value)
 	this->solution[position] = value;
 }
 
+void meta::solutionKP::setSolution(vector< bool > vect)
+{
+	this->solution = vect;
+}
+
 void meta::solutionKP::printSolution()
 {
 	cout << "Solution: [ ";
@@ -46,4 +51,11 @@ void meta::solutionKP::printSolution()
 		cout << this->solution[i] << " ";
 	}
 	cout << "]" << endl;
+}
+
+meta::solutionKP& meta::solutionKP::operator=(meta::solutionKP sol)
+{
+	this->solution = sol.getSolution();
+	
+	return *this;
 }
