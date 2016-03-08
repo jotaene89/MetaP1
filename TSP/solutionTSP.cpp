@@ -44,3 +44,10 @@ void meta::solutionTSP::printSolution()
 	}
 	cout << "]" << endl;
 }
+
+meta::solutionTSP& meta::solutionTSP::operator=(meta::solutionTSP sol)
+{
+	this->solution = sol.getSolution();
+	
+	return *this;
+}

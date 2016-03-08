@@ -77,6 +77,14 @@ public:
 	 * 
 	 */
 	void printSolution();
+	
+	/**
+	 * @brief Sobrecarga del operador de asignacion.
+	 * 
+	 * @param sol Objeto de la clase solucion a copiar.
+	 * @return meta::solutionTSP&
+	 */
+	solutionTSP& operator = (solutionTSP sol);
 }; //Close of class
 
 } //Close of namespace
