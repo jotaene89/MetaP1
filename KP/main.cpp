@@ -42,18 +42,19 @@ int main(int argc, char **argv) {
 		for( int j = 0; j<1000; j++)
 		{
 			solution = generator.randomSolution(mochila.size());
-			fitness[i] = instance.checkSolution(solution, i);
-			if (fitness[i] >= bestFitness)
+			fitness[j] = instance.checkSolution(solution, i);
+			if (fitness[j] >= bestFitness)
 			{
-				bestFitness = fitness[i];
+				bestFitness = fitness[j];
 				bestSolution = solution;
 			}
 		}
 		string fichero = nombreconst + SSTR( i ) + ".dat";
 		guardarAptitudes(fitness, fichero);
-		cout << "La mejor solucion para la instancia " << i << "es: " << endl;
+		cout << "La mejor solucion para la instancia " << i << " es: " << endl;
 		bestSolution.printSolution();
 		cout << "Fitness: " << bestFitness << endl;
+		bestFitness = 0;
 	}
 	
 }
