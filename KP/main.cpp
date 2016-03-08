@@ -1,13 +1,20 @@
 #include <iostream>
+#include <cstring>
 #include "InstanceKP.h"
 #include "solutionKP.h"
 #include "solGeneratorKP.h"
 #include "Knapsack.h"
 #include "../Random.h"
 #include "../Timer.h"
+#include <sstream>
+
+#define SSTR( x ) static_cast< std::ostringstream & >( \
+( std::ostringstream() << std::dec << x ) ).str()
 
 using namespace std;
 using namespace meta;
+
+void guardarAptitudes(const std::vector< double >& fitness, std::string fichero);
 
 int main(int argc, char **argv) {
 	
@@ -19,7 +26,9 @@ int main(int argc, char **argv) {
 	SolGeneratorKP generator = SolGeneratorKP(&random);
 	Knapsack mochila;
 	int numInstancias;
-	double fitness = 0, bestFitness = 0;
+	double bestFitness = 0;
+	vector <double> fitness(1000);
+	string nombreconst = "fitness_instancia_";
 	
 	cout << "Intruduzca el numero de instancias que se computaran: ";
 	std::cin >> numInstancias;
@@ -33,16 +42,39 @@ int main(int argc, char **argv) {
 		for( int j = 0; j<1000; j++)
 		{
 			solution = generator.randomSolution(mochila.size());
-			fitness = instance.checkSolution(solution, i);
-			if (fitness >= bestFitness)
+			fitness[i] = instance.checkSolution(solution, i);
+			if (fitness[i] >= bestFitness)
 			{
-				bestFitness = fitness;
+				bestFitness = fitness[i];
 				bestSolution = solution;
 			}
 		}
+		string fichero = nombreconst + SSTR( i ) + ".dat";
+		guardarAptitudes(fitness, fichero);
+		cout << "La mejor solucion para la instancia " << i << "es: " << endl;
+		bestSolution.printSolution();
+		cout << "Fitness: " << bestFitness << endl;
 	}
 	
-	cout << "La mejor solucion es: " << endl;
-	bestSolution.printSolution();
-	cout << "Fitness: " << bestFitness << endl;
+}
+
+
+void guardarAptitudes(const std::vector< double >& fitness, std::string fichero)
+{
+	std::ofstream salida;
+	
+	salida.open(fichero.c_str());
+	if(!salida)
+	{
+		std::cout << "Error al abrir el fichero" << std::endl;
+		exit(-1);
+	}
+	
+	for(unsigned int i=0;i<fitness.size();i++)
+	{
+		salida << i << " " << fitness[i] << std::endl;
+	}
+	
+	salida.close();
+	
 }
